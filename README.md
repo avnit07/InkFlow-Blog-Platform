@@ -1,16 +1,143 @@
-# React + Vite
+# 📝 InkFlow – Blog Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+InkFlow is a modern, full-stack **blog platform** built with **React** and **Appwrite**, where users can write, publish, and manage blog posts with images and rich text content.  
+The project focuses on clean architecture, real-world backend integration, and a polished UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔐 User Authentication (Signup / Login / Logout)
+- ✍️ Create, Edit, and Delete Blog Posts
+- 🖼️ Image Upload with Appwrite Storage
+- 📝 Rich Text Editor for blog content
+- 🔗 SEO-friendly unique slugs
+- 👤 Author-based post access
+- 📄 Public & private content handling
+- 🎨 Clean and responsive UI with Tailwind CSS
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React (Vite)
+- React Router DOM
+- Redux Toolkit
+- React Hook Form
+- Tailwind CSS
+
+### Backend (BaaS)
+- Appwrite
+  - Authentication
+  - Database
+  - Storage
+
+### Editor
+- TinyMCE (Rich Text Editor)
+
+---
+
+## 📁 Project Structure
+src/
+├── appwrite/
+│ ├── auth.js # Authentication services
+│ └── config.js # Database & Storage services
+│
+├── assets/
+│ └── logo.png # Application logo
+│
+├── components/
+│ ├── Header/ # Header with navigation & logo
+│ ├── Footer/ # Footer links & copyright
+│ ├── Post-form/ # Create/Edit post form
+│ ├── PostCard.jsx # Post preview card
+│ ├── RTE.jsx # Rich Text Editor wrapper
+│ ├── Input.jsx # Reusable input
+│ ├── Select.jsx # Reusable select
+│ ├── Button.jsx # Reusable button
+│ ├── Logo.jsx # Logo component
+│ └── container/ # Layout wrapper
+│
+├── pages/
+│ ├── Home.jsx
+│ ├── AllPosts.jsx
+│ ├── AddPost.jsx
+│ ├── EditPost.jsx
+│ ├── Post.jsx
+│ ├── Login.jsx
+│ └── Signup.jsx
+│
+├── store/
+│ ├── authSlice.js # Redux auth state
+│ └── store.js
+│
+├── App.jsx # Global layout
+├── main.jsx
+└── App.css
+
+
+## 🔐 Authentication Flow
+
+- User authentication is handled by **Appwrite Auth**
+- On app load:
+  - The app checks for the current logged-in user
+  - Redux state is updated accordingly
+- Auth state controls:
+  - Navigation visibility
+  - Access to protected routes (Add/Edit posts)
+
+  ---
+
+## 📝 Post Creation Flow
+
+1. User fills in:
+   - Title
+   - Content (Rich Text Editor)
+   - Featured Image
+   - Status (Active / Inactive)
+2. Slug is auto-generated from the title
+3. Image is uploaded to **Appwrite Storage**
+4. Appwrite returns a `fileId`
+5. `fileId` is stored in the database as `featuredImage`
+6. Post document is created in Appwrite Database
+7. User is redirected to the post page
+
+---
+
+## 🖼️ Image Handling
+
+- Images are stored in **Appwrite Storage**
+- Database stores **only the file ID**
+- Images are displayed using Appwrite file preview/view APIs
+- Storage permissions allow public image access
+
+---
+
+## 🧪 Installation & Setup
+
+npm install
+
+##  Create a .env file and add:
+VITE_APPWRITE_URL=your_appwrite_url
+VITE_APPWRITE_PROJECT_ID=your_project_id
+VITE_APPWRITE_DATABASE_ID=your_database_id
+VITE_APPWRITE_COLLECTION_ID=your_collection_id
+VITE_APPWRITE_BUCKET_ID=your_bucket_id
+
+## Run the app
+npm run dev
+
+
+
+## Future Improvements
+
+- Comments system
+- Likes & bookmarks
+- User profile pages
+- Draft & publish workflow
+- Dark mode
+- Pagination / infinite scroll
+

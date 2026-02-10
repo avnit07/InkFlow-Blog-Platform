@@ -44,8 +44,8 @@ function Home() {
     if (posts.length === 0) {
         return (
             <div className="w-full">
-                {/* Hero Section */}
-                <section className="py-16 md:py-24 bg-gradient-to-br from-blue-50 to-indigo-50">
+                {/* Hero Section - Full Width Background */}
+                <section className="w-full py-16 md:py-24 bg-gradient-to-br from-blue-50 to-indigo-50">
                     <Container>
                         <div className="text-center max-w-3xl mx-auto px-4">
                             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
@@ -80,20 +80,73 @@ function Home() {
                     </Container>
                 </section>
 
-                {/* Empty State */}
-                <section className="py-20">
+                {/* Enhanced Empty State - White Background */}
+                <section className="w-full py-20 bg-white">
                     <Container>
-                        <div className="text-center">
-                            <div className="text-6xl mb-4">📝</div>
-                            <h2 className="text-2xl font-bold text-gray-900 mb-3">
-                                No Stories Yet
-                            </h2>
-                            <p className="text-gray-600 mb-6">
-                                {authStatus 
-                                    ? "Be the first to share your thoughts with the world."
-                                    : "Login to start reading amazing stories from our community."
-                                }
-                            </p>
+                        <div className="max-w-2xl mx-auto">
+                            {/* Icon and Message */}
+                            <div className="text-center mb-12">
+                                <div className="inline-flex items-center justify-center w-24 h-24 bg-blue-100 rounded-full mb-6">
+                                    <svg className="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                    </svg>
+                                </div>
+                                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                                    {authStatus ? "Ready to Share Your Story?" : "No Stories Yet"}
+                                </h2>
+                                <p className="text-lg text-gray-600">
+                                    {authStatus 
+                                        ? "Your words have power. Start writing and inspire others with your unique perspective."
+                                        : "Our community is just getting started. Login to join the conversation and discover amazing content."
+                                    }
+                                </p>
+                            </div>
+
+                            {/* Feature Cards */}
+                            <div className="grid md:grid-cols-3 gap-6 mb-12">
+                                <div className="text-center p-6 bg-gray-50 rounded-xl">
+                                    <div className="text-3xl mb-3">✍️</div>
+                                    <h3 className="font-semibold text-gray-900 mb-2">Write Freely</h3>
+                                    <p className="text-sm text-gray-600">Express yourself with our rich text editor</p>
+                                </div>
+                                <div className="text-center p-6 bg-gray-50 rounded-xl">
+                                    <div className="text-3xl mb-3">🌟</div>
+                                    <h3 className="font-semibold text-gray-900 mb-2">Share Ideas</h3>
+                                    <p className="text-sm text-gray-600">Connect with readers who care</p>
+                                </div>
+                                <div className="text-center p-6 bg-gray-50 rounded-xl">
+                                    <div className="text-3xl mb-3">🚀</div>
+                                    <h3 className="font-semibold text-gray-900 mb-2">Grow Together</h3>
+                                    <p className="text-sm text-gray-600">Build your audience organically</p>
+                                </div>
+                            </div>
+
+                            {/* CTA */}
+                            <div className="text-center">
+                                {authStatus ? (
+                                    <Link to="/add-post">
+                                        <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors inline-flex items-center gap-2">
+                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                                            </svg>
+                                            Write Your First Post
+                                        </Button>
+                                    </Link>
+                                ) : (
+                                    <div className="flex gap-4 justify-center flex-wrap">
+                                        <Link to="/login">
+                                            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+                                                Login to Get Started
+                                            </Button>
+                                        </Link>
+                                        <Link to="/signup">
+                                            <Button className="bg-white hover:bg-gray-50 text-gray-900 px-8 py-3 rounded-lg font-medium border border-gray-300 transition-colors">
+                                                Create Account
+                                            </Button>
+                                        </Link>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </Container>
                 </section>
@@ -104,8 +157,8 @@ function Home() {
     // Posts available - show grid
     return (
         <div className="w-full">
-            {/* Hero Section - shown even when posts exist */}
-            <section className="py-12 md:py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+            {/* Hero Section - Full Width Background */}
+            <section className="w-full py-12 md:py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
                 <Container>
                     <div className="text-center max-w-3xl mx-auto px-4">
                         <h1 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900">
@@ -119,8 +172,8 @@ function Home() {
                 </Container>
             </section>
 
-            {/* Posts Grid */}
-            <section className="py-12">
+            {/* Posts Grid - White Background */}
+            <section className="w-full py-12 bg-white">
                 <Container>
                     <div className="mb-8">
                         <h2 className="text-2xl font-bold text-gray-900">
