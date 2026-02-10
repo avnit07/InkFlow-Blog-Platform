@@ -40,45 +40,6 @@ The project focuses on clean architecture, real-world backend integration, and a
 
 ---
 
-## 📁 Project Structure
-src/
-├── appwrite/
-│ ├── auth.js # Authentication services
-│ └── config.js # Database & Storage services
-│
-├── assets/
-│ └── logo.png # Application logo
-│
-├── components/
-│ ├── Header/ # Header with navigation & logo
-│ ├── Footer/ # Footer links & copyright
-│ ├── Post-form/ # Create/Edit post form
-│ ├── PostCard.jsx # Post preview card
-│ ├── RTE.jsx # Rich Text Editor wrapper
-│ ├── Input.jsx # Reusable input
-│ ├── Select.jsx # Reusable select
-│ ├── Button.jsx # Reusable button
-│ ├── Logo.jsx # Logo component
-│ └── container/ # Layout wrapper
-│
-├── pages/
-│ ├── Home.jsx
-│ ├── AllPosts.jsx
-│ ├── AddPost.jsx
-│ ├── EditPost.jsx
-│ ├── Post.jsx
-│ ├── Login.jsx
-│ └── Signup.jsx
-│
-├── store/
-│ ├── authSlice.js # Redux auth state
-│ └── store.js
-│
-├── App.jsx # Global layout
-├── main.jsx
-└── App.css
-
-
 ## 🔐 Authentication Flow
 
 - User authentication is handled by **Appwrite Auth**
@@ -121,11 +82,11 @@ src/
 npm install
 
 ##  Create a .env file and add:
-VITE_APPWRITE_URL=your_appwrite_url
-VITE_APPWRITE_PROJECT_ID=your_project_id
-VITE_APPWRITE_DATABASE_ID=your_database_id
-VITE_APPWRITE_COLLECTION_ID=your_collection_id
-VITE_APPWRITE_BUCKET_ID=your_bucket_id
+- VITE_APPWRITE_URL=your_appwrite_url
+- VITE_APPWRITE_PROJECT_ID=your_project_id
+- VITE_APPWRITE_DATABASE_ID=your_database_id
+- VITE_APPWRITE_COLLECTION_ID=your_collection_id
+- VITE_APPWRITE_BUCKET_ID=your_bucket_id
 
 ## Run the app
 npm run dev
