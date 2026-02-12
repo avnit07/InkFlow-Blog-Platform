@@ -167,14 +167,14 @@ function Signup() {
                     <form onSubmit={handleSubmit(create)} className='space-y-6'>
                         <Input
                             label="Full Name"
-                            placeholder="John Doe"
+                            placeholder="Enter your name ..."
                             {...register("name", {
                                 required: true,
                             })}
                         />
                         <Input
                             label="Email Address"
-                            placeholder="you@example.com"
+                            placeholder="Enter your email ..."
                             type="email"
                             {...register("email", {
                                 required: true,
@@ -187,7 +187,7 @@ function Signup() {
                         <Input
                             label="Password"
                             type="password"
-                            placeholder="Create a strong password (min. 8 characters)"
+                            placeholder="Create a strong password "
                             {...register("password", {
                                 required: true,
                             })}
