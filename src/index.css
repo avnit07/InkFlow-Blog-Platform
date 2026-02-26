@@ -210,3 +210,13 @@ button:disabled {
 .shadow-smooth-lg {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
+
+input, textarea, select {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}

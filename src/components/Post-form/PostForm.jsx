@@ -18,7 +18,8 @@ export default function PostForm({ post }) {
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth.userData);
     const [imagePreview, setImagePreview] = useState(null);
-
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    
     const submit = async (data) => {
         try {
             //  UPDATE POST
