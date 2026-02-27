@@ -23,7 +23,7 @@ function App() {
             .finally(() => setLoading(false))
     }, [])
 
-    // ✅ Block EVERYTHING until auth check is done
+    // Block EVERYTHING until auth check is done
     if (loading) {
         return (
             <div className="min-h-screen bg-[#F5F5F7] flex items-center justify-center">

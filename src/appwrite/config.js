@@ -130,7 +130,7 @@ export class Service {
             return true;
         } catch (error) {
             console.error("Appwrite service :: deleteFile :: error", error);
-            return false;  // non-critical — don't throw
+            return false; 
         }
     }
 

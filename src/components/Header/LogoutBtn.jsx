@@ -1,17 +1,17 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom' // ✅ ADD THIS
+import { useNavigate } from 'react-router-dom' 
 import authService from '../../appwrite/auth'
 import { logout } from '../../store/authSlice'
 
 function LogoutBtn({ mobile = false }) {
     const dispatch = useDispatch()
-    const navigate = useNavigate() // ✅ ADD THIS
+    const navigate = useNavigate() 
 
     const logoutHandler = () => {
         authService.logout().then(() => {
             dispatch(logout())
-            navigate("/") // ✅ THIS IS THE FIX — go home after logout
+            navigate("/") 
         })
     }
 

@@ -19,7 +19,7 @@ const Input = React.forwardRef(function Input({
             )}
             <input
                 type={type}
-                // ✅ KEY FIX: removed border-0 border-b-2, added full border + rounded
+               
                 className={`
                     w-full px-4 py-3
                     bg-white text-gray-900

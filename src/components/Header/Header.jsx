@@ -15,7 +15,7 @@ function Header() {
     { name: 'Login',     slug: '/login',     active: !authStatus },
     { name: 'Signup',    slug: '/signup',    active: !authStatus },
     { name: 'All Posts', slug: '/all-posts', active: authStatus },
-    { name: 'Add Post',  slug: '/add-post',  active: authStatus, cta: true }, // ✅ CTA flag
+    { name: 'Add Post',  slug: '/add-post',  active: authStatus, cta: true }, // 
   ]
 
   const handleNavClick = (slug) => {
@@ -51,7 +51,7 @@ function Header() {
               item.active ? (
                 <li key={item.name}>
                   {item.cta ? (
-                    // ✅ "Add Post" as a gradient CTA button
+                    //  "Add Post" 
                     <button
                       onClick={() => handleNavClick(item.slug)}
                       className='ml-2 flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-200 text-sm'
@@ -62,7 +62,7 @@ function Header() {
                       Add Post
                     </button>
                   ) : (
-                    // ✅ Regular nav items
+                    //  Regular nav items
                     <button
                       onClick={() => handleNavClick(item.slug)}
                       className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200
@@ -78,7 +78,7 @@ function Header() {
               ) : null
             )}
 
-            {/* ✅ Logout Button */}
+            {/*  Logout Button */}
             {authStatus && (
               <li className='ml-1'>
                 <LogoutBtn />

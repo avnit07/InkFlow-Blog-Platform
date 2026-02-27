@@ -21,12 +21,12 @@ export default function PostForm({ post }) {
     const [imagePreview, setImagePreview] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // ✅ Scroll to top on mount
+    //  Scroll to top on mount
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" });
     }, []);
 
-    // ✅ Set image preview for existing post
+    //  Set image preview for existing post
     useEffect(() => {
         if (post?.featuredImage) {
             setImagePreview(appwriteService.getFilePreview(post.featuredImage));
@@ -58,7 +58,7 @@ export default function PostForm({ post }) {
                     }),
                     { loading: "Saving changes...", success: "Post updated!", error: "Update failed" }
                 );
-                // ✅ Use post.$id (slug) for navigation
+                //  Use post.$id (slug) for navigation
                 if (dbPost) setTimeout(() => navigate(`/post/${post.$id}`), 1500);
 
             } else {
@@ -83,7 +83,7 @@ export default function PostForm({ post }) {
                         }),
                         { loading: "Publishing post...", success: "Post published!", error: "Publish failed" }
                     );
-                    // ✅ Navigate using slug (which is the document ID)
+                    //  Navigate using slug (which is the document ID)
                     if (dbPost) setTimeout(() => navigate(`/post/${data.slug}`), 1500);
                 } catch (err) {
                     if (uploadedFileId) await appwriteService.deleteFile(uploadedFileId);
@@ -97,7 +97,6 @@ export default function PostForm({ post }) {
         }
     };
 
-    // ✅ Fixed slug transform — max 36 chars, Appwrite-safe
     const slugTransform = useCallback((value) => {
         if (value && typeof value === "string") {
             const base = value
@@ -176,7 +175,7 @@ export default function PostForm({ post }) {
                         </p>
                     </div>
 
-                    {/* ✅ Status pill */}
+                    {/*  Status pill */}
                     <div className="hidden md:flex items-center gap-2 bg-white border border-[#E2E2E7] shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-4 py-2.5 rounded-full mt-1">
                         <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
                         <span className="text-[#111111] text-xs font-semibold">
@@ -239,7 +238,7 @@ export default function PostForm({ post }) {
                                         <input
                                             placeholder="auto-generated-from-title"
                                             {...register("slug", { required: true })}
-                                            // ✅ slug is read-only on edit — don't allow changes
+                                           
                                             readOnly={!!post}
                                             className={`flex-1 px-4 py-3 font-mono text-sm outline-none placeholder:text-[#D1D5DB]
                                                 ${post
@@ -403,7 +402,7 @@ export default function PostForm({ post }) {
 
                                 <div className="h-px bg-[#F3F4F6]" />
 
-                                {/* ✅ Action Buttons */}
+                                {/*  Action Buttons */}
                                 <div className="space-y-3">
                                     <Button
                                         type="submit"
@@ -435,7 +434,7 @@ export default function PostForm({ post }) {
                                         )}
                                     </Button>
 
-                                    {/* ✅ Cancel button */}
+                                    {/*  Cancel button */}
                                     <button
                                         type="button"
                                         disabled={isSubmitting}
