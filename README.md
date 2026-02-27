@@ -1,104 +1,118 @@
-# 📝 InkFlow – Blog Platform
 
-InkFlow is a modern, full-stack **blog platform** built with **React** and **Appwrite**, where users can write, publish, and manage blog posts with images and rich text content.  
-The project focuses on clean architecture, real-world backend integration, and a polished UI.
+# ✍️ InkFlow — Full-Stack Blogging Platform
+
+**Production-ready blogging platform built with React 19, Appwrite & Vite**
+
+🔗 [Live Demo](https://ink-flow-blog-platform.vercel.app)  
+💻 [Source Code](https://github.com/avnit07/InkFlow-Blog-Platform)
+
+---
+
+## 🚀 Overview
+
+**InkFlow** is a scalable full-stack blogging platform that enables authenticated users to create, manage, and publish rich-text articles with media support.
+
+The application is built using a modern React architecture with protected routing, centralized state management, and a backend powered by **Appwrite (Auth + Database + Storage)**.
+
+It demonstrates real-world engineering concepts such as:
+
+- Authentication & Authorization
+- Secure route protection
+- Full CRUD operations
+- File upload & cloud storage handling
+- Optimized UI with loading states
+- Modular and scalable architecture
+- Production-ready deployment workflow
 
 ---
 
 
-## 🚀 Features
 
-- 🔐 User Authentication (Signup / Login / Logout)
-- ✍️ Create, Edit, and Delete Blog Posts
-- 🖼️ Image Upload with Appwrite Storage
-- 📝 Rich Text Editor for blog content
-- 🔗 SEO-friendly unique slugs
-- 👤 Author-based post access
-- 📄 Public & private content handling
-- 🎨 Clean and responsive UI with Tailwind CSS
+## ✨ Key Features
+
+### 🔐 Authentication & Access Control
+- Email/password authentication using Appwrite
+- Protected routes with access control
+- Persistent login sessions
+- Author-only editing permissions
+
+### 📝 Rich Blog Management
+- Create, edit, and delete blog posts
+- TinyMCE-powered rich text editor
+- Slug-based dynamic routing (`/post/:slug`)
+- Structured content rendering
+
+### 🖼️ Media Handling
+- Featured image upload (up to 10MB)
+- Appwrite Storage integration
+- Optimized image preview display
+
+### 📊 Enhanced User Experience
+- Reading progress indicator
+- Automatic read-time estimation
+- Skeleton loading placeholders
+- Toast notifications for real-time feedback
+- Scroll restoration on route change
+- Custom 404 Not Found page
+
+### 📱 Fully Responsive
+- Mobile-first design
+- Optimized for desktop, tablet, and mobile devices
 
 ---
-
 
 ## 🛠️ Tech Stack
 
-### Frontend
-- React (Vite)
-- React Router DOM
-- Redux Toolkit
-- React Hook Form
-- Tailwind CSS
-
-### Backend (BaaS)
-- Appwrite
-  - Authentication
-  - Database
-  - Storage
-
-### Editor
-- TinyMCE (Rich Text Editor)
-
+React 19, Vite, Tailwind CSS, Redux Toolkit, React Router DOM,  
+Appwrite (Auth + Database + Storage), TinyMCE, React Hook Form, Vercel.
 ---
 
-## 🔐 Authentication Flow
+## 🧠 Technical Highlights
 
-- User authentication is handled by **Appwrite Auth**
-- On app load:
-  - The app checks for the current logged-in user
-  - Redux state is updated accordingly
-- Auth state controls:
-  - Navigation visibility
-  - Access to protected routes (Add/Edit posts)
-
-  ---
-
-## 📝 Post Creation Flow
-
-1. User fills in:
-   - Title
-   - Content (Rich Text Editor)
-   - Featured Image
-   - Status (Active / Inactive)
-2. Slug is auto-generated from the title
-3. Image is uploaded to **Appwrite Storage**
-4. Appwrite returns a `fileId`
-5. `fileId` is stored in the database as `featuredImage`
-6. Post document is created in Appwrite Database
-7. User is redirected to the post page
+- Designed a modular Appwrite service layer (authentication + database abstraction)
+- Centralized authentication state using Redux Toolkit
+- Built reusable UI component system (Button, Input, Layout, Auth Guard)
+- Implemented secure client-side route protection
+- Configured environment-based deployment on Vercel
+- Implemented SPA routing rewrites for direct URL access
+- Structured project using scalable folder architecture
 
 ---
+## ⚙️ Local Setup
 
-## 🖼️ Image Handling
+###  Clone Repository
 
-- Images are stored in **Appwrite Storage**
-- Database stores **only the file ID**
-- Images are displayed using Appwrite file preview/view APIs
-- Storage permissions allow public image access
+```bash
+git clone https://github.com/avnit07/InkFlow-Blog-Platform.git
+cd InkFlow-Blog-Platform
 
----
-
-## 🧪 Installation & Setup
-
+## Install Dependencies
 npm install
+## Configure Environment Variables
 
-##  Create a .env file and add:
-- VITE_APPWRITE_URL=your_appwrite_url
-- VITE_APPWRITE_PROJECT_ID=your_project_id
-- VITE_APPWRITE_DATABASE_ID=your_database_id
-- VITE_APPWRITE_COLLECTION_ID=your_collection_id
-- VITE_APPWRITE_BUCKET_ID=your_bucket_id
+Create a .env file in the root directory:
 
-## Run the app
+VITE_APPWRITE_URL=
+VITE_APPWRITE_PROJECT_ID=
+VITE_APPWRITE_DATABASE_ID=
+VITE_APPWRITE_COLLECTION_ID=
+VITE_APPWRITE_BUCKET_ID=
+
+## Start Development Server
 npm run dev
 
+Open: http://localhost:5173
+
+🌍 Deployment
+
+The project is deployed on Vercel with environment-based configuration and SPA routing support.
+
+👨‍💻 Author
+
+Avnit
+GitHub: https://github.com/avnit07
 
 
-## Future Improvements
+⭐ If you found this project helpful, consider giving it a star!
 
-- Comments system
-- Likes & bookmarks
-- User profile pages
-- Draft & publish workflow
-- Dark mode
-- Pagination / infinite scroll
 
